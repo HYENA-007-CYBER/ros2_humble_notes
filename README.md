@@ -121,6 +121,35 @@ A **C++ package** in ROS2 uses the `ament_cmake` build type and contains nodes w
     ```
 
 ---
+### ROS2 Node
+A **Node** in ROS2 is the fundamental building block of the ROS system 
+Each node is a process responsible for a specific task generally to publish/subscribe
+
+
+#### Basic Node Definition in Python
+
+```python
+from rclpy.node import Node
+
+class MyNode(Node):
+    def __init__(self):
+        super().__init__('my_node_name')
+        # Here on u can have what u want to create
+```
+   - Node: The base class from rclpy used to define ROS2 nodes
+   - `my_node_name`: The name by which the node is identified
+#### Node commands:
+   - rclpy.init() - Initializes the ROS2 Python interface
+   - rclpy.shutdown() - Shuts it down
+   - rclpy.spin(node) - Keeps the node running so it can respond to timers, subscriptions
+   - destroy_node() - Cleans up resources used by the node before shutdown
+#### After creating the node
+- Add the node as entry point to setup.py
+
+
+
+
+
 ### ROS2 Topic
 
 In ROS2, a **topic** is a communication channel that allows nodes to **publish** and **subscribe** messages
@@ -133,19 +162,9 @@ In ROS2, a **topic** is a communication channel that allows nodes to **publish**
 ####  Characteristics:
 - Topics are **unidirectional**: from publisher → subscriber(s)
 - Messages must follow a defined **message type** (e.g., `std_msgs/String`, `sensor_msgs/Image`)
-
-### ROS2 Topic
-
-In ROS2, a **topic** is a communication channel that allows nodes to **publish** and **subscribe** messages
-
-#### Concept:
-- A **publisher** node sends messages to a named topic
-- A **subscriber** node receives messages from that topic
-- Nodes do not communicate directly with each other , they use topics as intermediaries
-
-####  Characteristics:
-- Topics are **unidirectional**: from publisher → subscriber(s)
-- Messages must follow a defined **message type** (e.g., `std_msgs/String`, `sensor_msgs/Image`)
+#### Add dependencies
+- Based on the required message type add the dependency package to `package.xml`
+- From that package retrieve the required datatype to use in node
   
 #### Commands:
 - To check details of a topic
@@ -169,6 +188,7 @@ It acts as a data producer
 - It then **publishes messages** on that topic using the `.publish()` method
 - Any other node that subscribes to this topic will receive those messages
 - Multiple subscribers can listen to the same topic
+
 
 
 
@@ -233,10 +253,7 @@ if __name__ =='__main__':
      ```python
      self.get_logger().info(f'Publishing: {msg.data}')
      ```
-5. - rclpy.init() - Initializes the ROS2 Python interface
-   - rclpy.shutdown() - Shuts it down
-   - rclpy.spin(node) - Keeps the node running so it can respond to timers, subscriptions
-   - destroy_node() - Cleans up resources used by the node before shutdown
+
 
 ## Subscriber Node
 
