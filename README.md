@@ -3,7 +3,7 @@
 ##  Objective
 We need to learn about the basics of ROS2
 - To create a **publisher node** that sends numbers
-- To create a **subscriber node** that receives those integers, calculates their square, and prints the result
+- To create a **subscriber node** that receives those numbers, calculates their square, and prints the result
 
 ---
 
