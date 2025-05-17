@@ -10,14 +10,12 @@ We need to learn about the basics of ROS2
 ##  Requirements
 - **ROS 2 Version**: [ROS2-humble(jammy jellyfish)]
 - **Operating System**: Ubuntu 22.04
-- **Programming Language**: Python
+- **Programming Language**: Python or c++
 ---
 
 ##  What I Learned
 
-###  ROS2 Framework
-- ROS 2 is built on the concept of **nodes**, which are independent processes that perform computation
-- Nodes communicate with each other using **topics** through a **publish/subscribe** model
+
 
 ### Creating a ROS2 workspace
 Workspace is a folder that contains ROS  packages and allows us to build and run them together<br>
@@ -122,8 +120,9 @@ A **C++ package** in ROS2 uses the `ament_cmake` build type and contains nodes w
 
 ---
 ### ROS2 Node
-A **Node** in ROS2 is the fundamental building block of the ROS system 
-Each node is a process responsible for a specific task generally to publish/subscribe
+ROS 2 is built on the concept of **nodes**, which are independent processes that perform computation<br>
+Nodes communicate with each other using **topics** through a **publish/subscribe** model
+
 
 
 #### Basic Node Definition in Python
