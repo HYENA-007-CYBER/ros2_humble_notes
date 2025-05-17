@@ -121,6 +121,18 @@ A **C++ package** in ROS2 uses the `ament_cmake` build type and contains nodes w
     ```
 
 ---
+### ROS2 Topic
+
+In ROS2, a **topic** is a communication channel that allows nodes to **publish** and **subscribe** messages
+
+#### Concept:
+- A **publisher** node sends messages to a named topic
+- A **subscriber** node receives messages from that topic
+- Nodes do not communicate directly with each other , they use topics as intermediaries
+
+####  Characteristics:
+- Topics are **unidirectional**: from publisher → subscriber(s)
+- Messages must follow a defined **message type** (e.g., `std_msgs/String`, `sensor_msgs/Image`)
 
 ### ROS2 Topic
 
@@ -157,6 +169,7 @@ It acts as a data producer
 - It then **publishes messages** on that topic using the `.publish()` method
 - Any other node that subscribes to this topic will receive those messages
 - Multiple subscribers can listen to the same topic
+
 
 
 
