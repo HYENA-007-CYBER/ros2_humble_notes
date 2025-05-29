@@ -10,9 +10,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/launch', ['launch/number_launch.py']),
     ],
     install_requires=['setuptools'],
-    zip_safe=True,
+    zip_safe=False,
     maintainer='hyensteen',
     maintainer_email='hyensteen10@gmail.com',
     description='TODO: Package description',
@@ -20,10 +21,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-        	'first_node = week1_pkg.first_node:main',
-            'number_publisher= week1_pkg.number_publisher:main',
-            'square_subscriber= week1_pkg.square_subscriber:main',
-
+            'first_node = week1_pkg.first_node:main',
+            'number_publisher = week1_pkg.number_publisher:main',
+            'square_subscriber = week1_pkg.square_subscriber:main',
         ],
     },
 )
