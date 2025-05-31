@@ -1,4 +1,4 @@
-#  What is DDS (Data Distribution Service)
+#  What is DDS (Data Distribution Service)?
 
 DDS stands for **Data Distribution Service** and it is the backbone of communication in ROS 2. It is not something developed exclusively for ROS ,it’s an industry-grade middleware standard designed to enable **high-performance, real-time, and scalable** data exchange in distributed systems
 
@@ -10,11 +10,11 @@ DDS operates on a **publish-subscribe architecture**, where nodes either publish
 - **QoS Policies**: Quality of Service allows customization of how data is delivered (eg : reliability, history, deadlines)
 - **Built-in Security and Scalability**: DDS is used in critical industries like aerospace and defense, so it’s inherently built to be robust and secure
 
-ROS 2 abstracts most of DDS’s complexity, but its benefits  especially in multi-robot and distributed applications  are retained
+ROS 2 abstracts most of DDS’s complexity, but its benefits  especially in multi-robot and distributed applications  are retained.
 
 ---
 
-# What is Peer-to-Peer Communication
+# What is Peer-to-Peer Communication?
 
 In ROS 2, communication happens in  **peer-to-peer (P2P)** method. This means:
 - There is **no  master node** required for communication
@@ -48,5 +48,18 @@ ROS 2  overcome these limitations by adopting DDS as its communication foundatio
 - **Enables QoS settings**, allowing developers to tailor communication behavior based on reliability, latency, bandwidth, and other requirements
 - **Supports dynamic discovery** and real-time data exchange
 
+ROS 2 brings ROS into alignment with **modern distributed system practices**, using proven middleware that already powers mission-critical systems
 
+---
 
+# ROS 1 vs ROS 2 Communication
+
+| Feature                  | ROS 1                         | ROS 2 (with DDS)              |
+|--------------------------|-------------------------------|-------------------------------|
+| Discovery Mechanism      | Centralized (ROS Master)      | Distributed (via DDS)         |
+| Communication            | Indirect via Master           | Direct peer-to-peer           |
+| Failure Recovery         | Master failure = system crash | Resilient, no single point    |
+| QoS Support              | None                          | Full QoS (reliability, etc...)|
+| Multi-Robot Support      | Complex, limited              | Built-in and flexible         |
+| Network Flexibility      | LAN-focused                   | Works across complex networks |
+| Scalability              | Limited                       | High                          |
