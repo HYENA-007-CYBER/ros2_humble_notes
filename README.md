@@ -352,7 +352,7 @@ In ROS 2, communication happens in  **peer-to-peer (P2P)** method. This means:
 - Once discovered, nodes connect **directly** to exchange messages, which minimizes latency and removes bottlenecks
 
 ### How Discovery Works:
-DDS uses a mechanism known as **Simple Discovery Protocol (SDP)** for nodes to announce themselves and discover others.In large-scale systems, a **Discovery Server** can be used to optimize the discovery process, but even that does not act as a communication hub , just a directory to help reduce discovery traffic
+DDS uses a mechanism known as **Simple Discovery Protocol (SDP)** for nodes to announce themselves and discover others. In large-scale systems, a **Discovery Server** can be used to optimize the discovery process, but even that does not act as a communication hub , just a directory to help reduce discovery traffic
 
 This model is highly fault tolerant. If one node or even a group of nodes fail, the rest of the system continues to operate independently, which is good for robotics systems deployed in unpredictable environments
 
