@@ -364,45 +364,45 @@ In ROS 1, all communication was dependent on the **ROS Master**, a central proce
 
 ### Limitations of ROS 1 Master:
 - **Single Point of Failure**: If the ROS Master crashed or was unreachable, nodes could not discover each other or maintain communication
-- **Not Scalable**: Managing discovery and topic routing centrally became problematic in large or distributed systems
-- **Network Restrictions**: ROS Master assumes a shared network, which is difficult when working across multiple subnets or with robots deployed remotely.
-- **No QoS Support**: ROS 1 offered no native control over communication behavior (e.g., retries, message delivery guarantees, etc.).
+- **Not Scalable**: Managing discovery and topic routing centrally became problematic in large  and distributed systems
+- **Network Restrictions**: ROS Master assumes a shared network, which is difficult when working across multiple subnets or with robots deployed remotely
+- **No QoS Support**: ROS 1 offered no native control over communication behavior (eg: retries, message delivery guarantees etc....)
 
 ---
 
 ## 4. How ROS 2 Improves Things with DDS
 
-ROS 2 was designed to overcome these limitations by adopting DDS as its communication foundation. With DDS, ROS 2:
-- **Removes the need for a central master**, making systems more resilient and fault-tolerant.
-- **Allows scalable, distributed communication** across networks, which is ideal for real-world multi-robot systems, IoT robotics, and industrial automation.
-- **Enables fine-grained QoS settings**, allowing developers to tailor communication behavior based on reliability, latency, bandwidth, and other requirements.
-- **Supports dynamic discovery** and real-time data exchange out of the box.
+ROS 2  overcome these limitations by adopting DDS as its communication foundation. With DDS, ROS 2:
+- **Removes the need for a central master**, making systems more resilient and fault tolerant
+- **Allows scalable, distributed communication** across networks, which is ideal for real world multi-robot systems, IoT robotics, and industrial automation
+- **Enables QoS settings**, allowing developers to tailor communication behavior based on reliability, latency, bandwidth, and other requirements
+- **Supports dynamic discovery** and real-time data exchange
 
-In essence, ROS 2 brings ROS into alignment with **modern distributed system practices**, using proven middleware that already powers mission-critical systems.
+ROS 2 brings ROS into alignment with **modern distributed system practices**, using proven middleware that already powers mission-critical systems
 
 ---
 
-## 5. Summary Table: ROS 1 vs. ROS 2 Communication
+## 5.ROS 1 vs ROS 2 Communication
 
 | Feature                  | ROS 1                         | ROS 2 (with DDS)              |
 |--------------------------|-------------------------------|-------------------------------|
 | Discovery Mechanism      | Centralized (ROS Master)      | Distributed (via DDS)         |
 | Communication            | Indirect via Master           | Direct peer-to-peer           |
 | Failure Recovery         | Master failure = system crash | Resilient, no single point    |
-| QoS Support              | None                          | Full QoS (reliability, etc.)  |
-| Multi-Robot Support      | Complex, limited               | Built-in and flexible         |
+| QoS Support              | None                          | Full QoS (reliability, etc...)|
+| Multi-Robot Support      | Complex, limited               | Built-in and flexible        |
 | Network Flexibility      | LAN-focused                   | Works across complex networks |
 | Scalability              | Limited                       | High                          |
 
 ---
 
-## ✅ Conclusion
+##  Conclusion
 
 The transition from ROS 1 to ROS 2 represents a major architectural shift, focused on **robustness, flexibility, and scalability**. By using DDS and adopting a peer-to-peer model:
-- ROS 2 eliminates the ROS Master as a bottleneck.
-- Enables dynamic, decentralized systems.
-- Supports a wider range of use cases — from simple robots to distributed, real-time, multi-agent systems.
+- ROS 2 eliminates the ROS Master as a bottleneck
+- Enables dynamic, decentralized systems
+- Supports a wider range of use cases — from simple robots to distributed, real-time, multi-agent systems
 
-For roboticists, this means ROS 2 is better suited to meet the demands of **modern, real-world applications** in industry, research, and beyond.
+ROS 2 is better suited to meet the demands of **modern, real-world applications** in industry, research, and beyond
 
 
