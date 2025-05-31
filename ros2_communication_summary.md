@@ -10,7 +10,7 @@ DDS operates on a **publish-subscribe architecture**, where nodes either publish
 - **QoS Policies**: Quality of Service allows customization of how data is delivered (eg : reliability, history, deadlines)
 - **Built-in Security and Scalability**: DDS is used in critical industries like aerospace and defense, so it’s inherently built to be robust and secure
 
-ROS 2 abstracts most of DDS’s complexity, but its benefits  especially in multi-robot and distributed applications  are retained.
+ROS 2 abstracts most of DDS’s complexity, but its benefits  especially in multi-robot and distributed applications  are retained
 
 ---
 
