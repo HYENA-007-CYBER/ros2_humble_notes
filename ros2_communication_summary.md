@@ -1,4 +1,4 @@
-#  What is DDS (Data Distribution Service)?
+#  What is DDS (Data Distribution Service)
 
 DDS stands for **Data Distribution Service** and it is the backbone of communication in ROS 2. It is not something developed exclusively for ROS ,it’s an industry-grade middleware standard designed to enable **high-performance, real-time, and scalable** data exchange in distributed systems
 
@@ -14,7 +14,7 @@ ROS 2 abstracts most of DDS’s complexity, but its benefits  especially in mult
 
 ---
 
-# What is Peer-to-Peer Communication?
+# What is Peer-to-Peer Communication
 
 In ROS 2, communication happens in  **peer-to-peer (P2P)** method. This means:
 - There is **no  master node** required for communication
