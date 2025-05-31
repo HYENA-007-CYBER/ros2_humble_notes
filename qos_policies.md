@@ -42,8 +42,10 @@ Controls how many past messages are stored in the publisher or subscriber queue
 | `KEEP_LAST(n)`  | Keep only the last `n` messages (where `n = depth`)                      |
 | `KEEP_ALL`      | Keep all messages in memory until delivered                              |
 
-**Tip**  
-`KEEP_LAST` is most commonly used with a specific depth (e.g., 10)
+**Usage Example**  
+Use `KEEP_LAST` when only recent messages are needed and memory usage should be limited  
+Use `KEEP_ALL` when every single message matters and there's enough memory to store them all
+
 
 ---
 
@@ -65,7 +67,7 @@ Ensures the publisher is still alive and connected
 
 | Setting             | Description                                                               |
 |---------------------|---------------------------------------------------------------------------|
-| `AUTOMATIC`         | System handles liveness. Used in most cases                             |
+| `AUTOMATIC`         | System handles liveness. Used in most cases                             |              
 | `MANUAL_BY_TOPIC`   | Publisher manually asserts it's alive. Allows finer control             |
 
 Helpful for detecting failures or disconnections
