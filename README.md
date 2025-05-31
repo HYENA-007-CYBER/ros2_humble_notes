@@ -328,7 +328,7 @@ if __name__=='__main__':
   
 ---
 
-## 1. What is DDS (Data Distribution Service)?
+##  What is DDS (Data Distribution Service)?
 
 DDS stands for **Data Distribution Service** and it is the backbone of communication in ROS 2. It is not something developed exclusively for ROS ,it’s an industry-grade middleware standard designed to enable **high-performance, real-time, and scalable** data exchange in distributed systems
 
@@ -344,7 +344,7 @@ ROS 2 abstracts most of DDS’s complexity, but its benefits  especially in mult
 
 ---
 
-## 2. What is Peer-to-Peer Communication?
+## What is Peer-to-Peer Communication?
 
 In ROS 2, communication happens in  **peer-to-peer (P2P)** method. This means:
 - There is **no  master node** required for communication
@@ -358,7 +358,7 @@ This model is highly fault tolerant. If one node or even a group of nodes fail, 
 
 ---
 
-## 3. Why ROS 2 Moved Away from the ROS Master
+## Why ROS 2 Moved Away from the ROS Master
 
 In ROS 1, all communication was dependent on the **ROS Master**, a central process that kept track of publishers, subscribers, and services. While it was simple to implement and suitable for single-robot setups in controlled environments, it introduced several limitations
 
@@ -370,7 +370,7 @@ In ROS 1, all communication was dependent on the **ROS Master**, a central proce
 
 ---
 
-## 4. How ROS 2 Improves Things with DDS
+## How ROS 2 Improves Things with DDS
 
 ROS 2  overcome these limitations by adopting DDS as its communication foundation. With DDS, ROS 2:
 - **Removes the need for a central master**, making systems more resilient and fault tolerant
@@ -382,7 +382,7 @@ ROS 2 brings ROS into alignment with **modern distributed system practices**, us
 
 ---
 
-## 5.ROS 1 vs ROS 2 Communication
+## ROS 1 vs ROS 2 Communication
 
 | Feature                  | ROS 1                         | ROS 2 (with DDS)              |
 |--------------------------|-------------------------------|-------------------------------|
@@ -390,19 +390,11 @@ ROS 2 brings ROS into alignment with **modern distributed system practices**, us
 | Communication            | Indirect via Master           | Direct peer-to-peer           |
 | Failure Recovery         | Master failure = system crash | Resilient, no single point    |
 | QoS Support              | None                          | Full QoS (reliability, etc...)|
-| Multi-Robot Support      | Complex, limited               | Built-in and flexible        |
+| Multi-Robot Support      | Complex, limited              | Built-in and flexible         |
 | Network Flexibility      | LAN-focused                   | Works across complex networks |
 | Scalability              | Limited                       | High                          |
 
 ---
 
-##  Conclusion
-
-The transition from ROS 1 to ROS 2 represents a major architectural shift, focused on **robustness, flexibility, and scalability**. By using DDS and adopting a peer-to-peer model:
-- ROS 2 eliminates the ROS Master as a bottleneck
-- Enables dynamic, decentralized systems
-- Supports a wider range of use cases — from simple robots to distributed, real-time, multi-agent systems
-
-ROS 2 is better suited to meet the demands of **modern, real-world applications** in industry, research, and beyond
 
 
