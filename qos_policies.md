@@ -1,7 +1,6 @@
-# ROS 2 QoS Policies Explained
+# ROS 2 QoS Policies
 
-ROS 2 uses DDS (Data Distribution Service) under the hood and with it comes powerful **QoS (Quality of Service)** settings to control how nodes communicate. This document explains the most important QoS policies you'll use in ROS 2
-
+ROS 2 uses DDS (Data Distribution Service) under the hood and with it comes powerful **QoS (Quality of Service)** settings to control how nodes communicate between each other
 ---
 
 ## 1. Reliability Policy
