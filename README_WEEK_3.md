@@ -260,14 +260,14 @@ It shows demo of obstacle stopping behaviour and teleoperation
 
 # HOW TO RUN 
 
-Make sure your workspace is sourced and built:
+Make sure the workspace is sourced and built:
 
 ```bash
 colcon build --packages-select my_robot_description
 source install/setup.bash
 ```
 
-Then launch with your Gazebo world (including sensors):
+Then launch with  Gazebo world (including sensors and obstacle_stop node):
 
 ```bash
 ros2 launch my_robot_description gazebo.launch.py
