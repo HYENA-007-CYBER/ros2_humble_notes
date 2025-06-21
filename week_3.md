@@ -128,7 +128,7 @@ Mounted on top of the chassis. Simulates a 2D ray-based laser scanner:
 </sensor>
 ```
 
-Feeds distance data into `/scan` topic used by the obstacle stop node
+Feeds distance data into `/gazebo_ros_laser/out` topic used by the obstacle stop node
 
 ---
 
@@ -157,7 +157,7 @@ This improves simulation realism and reduces wobbling
 
 ---
 
-## Bot Structure
+## Total Overview
 
 | Component   | Description |
 |-------------|-------------|
