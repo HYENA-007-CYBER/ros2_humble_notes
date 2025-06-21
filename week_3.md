@@ -42,15 +42,15 @@ It also supports adding **plugins** for things like sensors and motion control
 While URDF is good, it can get repetitive. That’s where **XACRO** comes in — it’s like an advanced version of URDF that supports macros and parameters. It helped me avoid repeating the same code for similar parts (like the four wheels)
 
 With XACRO, I could:
-- Write **macros** to define a wheel once and reuse it,
-- Use **parameters** to quickly adjust dimensions and positions,
-- Do **math operations** directly in the file to make things cleaner and more modular.
+- Write **macros** to define a wheel once and reuse it
+- Use **parameters** to quickly adjust dimensions and positions
+- Do **math operations** directly in the file to make things cleaner and more modular
 
 ---
 
-## 🛠 XACRO Structure Overview
+# XACRO Structure Overview
 ---
-### 📐 Parameters
+## Parameters
 
 Defined at the top for easy configuration and reuse across the robot:
 
@@ -64,13 +64,13 @@ Defined at the top for easy configuration and reuse across the robot:
 
 These allow easy tuning of the robot’s geometry and joint locations
 ---
-### Base Link (Body)
+## Base Link (Body)
 
 The main chassis of the robot is represented using a box geometry. The `base_link` contains:
 
 - **Visual & Collision** elements
 - **Mass and Inertial** properties for dynamic simulation
-- Positioned such that it sits above the ground.
+- Positioned such that it sits above the ground
 
 ```xml
 <link name="base_link">
@@ -88,7 +88,7 @@ The main chassis of the robot is represented using a box geometry. The `base_lin
 ```
 ---
 
-### Wheels – Macros
+## Wheels – Macros
 
 Wheels are created using a `xacro:macro`, and reused for all four wheels (front/rear, left/right). Each wheel:
 
@@ -102,9 +102,9 @@ Wheels are created using a `xacro:macro`, and reused for all four wheels (front/
 
 ---
 
-### Differential Drive Plugin
+## Differential Drive Plugin
 
-Allows the robot to move using the `cmd_vel` topic. Only rear wheels are driven.
+Allows the robot to move using the `cmd_vel` topic. Only rear wheels are driven , front wheels are for support
 
 ```xml
 <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
@@ -114,11 +114,10 @@ Allows the robot to move using the `cmd_vel` topic. Only rear wheels are driven.
   <max_velocity>0.5</max_velocity>
 </plugin>
 ```
-
-Limits on speed and acceleration help avoid instability.
+Limits on speed and acceleration help avoid instability
 ---
 
-##  LIDAR Sensor
+## LIDAR Sensor
 
 Mounted on top of the chassis. Simulates a 2D ray-based laser scanner:
 
@@ -129,11 +128,11 @@ Mounted on top of the chassis. Simulates a 2D ray-based laser scanner:
 </sensor>
 ```
 
-Feeds distance data into `/scan` topic used by the obstacle stop node.
+Feeds distance data into `/scan` topic used by the obstacle stop node
 
 ---
 
-## 🎥 Camera
+##  Camera
 
 Placed in front of the robot, mounted using a fixed joint. Outputs video feed via `/image_raw`:
 
@@ -146,7 +145,7 @@ Placed in front of the robot, mounted using a fixed joint. Outputs video feed vi
 
 ---
 
-## 🧠 Inertial Configuration
+##  Inertial Configuration
 
 To improve stability and avoid toppling:
 
@@ -154,11 +153,11 @@ To improve stability and avoid toppling:
 - Inertia matrix has uniform values
 - Center of mass is lowered slightly with `<origin xyz="0 0 0.02"/>`
 
-This improves simulation realism and reduces wobbling.
+This improves simulation realism and reduces wobbling
 
 ---
 
-## ✅ Summary
+## Bot Structure
 
 | Component   | Description |
 |-------------|-------------|
@@ -166,7 +165,9 @@ This improves simulation realism and reduces wobbling.
 | Wheels      | Cylindrical, macros reused for all 4 |
 | Drive       | Differential drive plugin for motion |
 | LIDAR       | Ray-based sensor for distance sensing |
-| Camera      | RGB camera with live stream |
+| Camera      | Camera with live stream |
 | Stability   | Improved using mass, inertia, and origin tuning |
 
-This structure results in a robust, simulation-ready robot.
+---
+
+
