@@ -169,5 +169,70 @@ This improves simulation realism and reduces wobbling
 | Stability   | Improved using mass, inertia, and origin tuning |
 
 ---
+# Obstacle Stop Node 
 
+This Python node (`obstacle_stop.py`) implements a basic safety mechanism for the 4-wheeled differential drive robot in a Gazebo simulation.
+
+---
+
+##  Overview
+
+The **Obstacle Stop Node** listens to LIDAR sensor data and stops the robot if an obstacle is detected within a certain safe distance (default is 0.5 meters).
+
+---
+##  ROS 2 Interfaces
+
+### Subscribed Topic
+- **`/four_wheel_bot/gazebo_ros_laser/out`** (`sensor_msgs/msg/LaserScan`): LIDAR scan data from the robot
+
+### Published Topic
+- **`/four_wheel_bot/cmd_vel`** (`geometry_msgs/msg/Twist`): Velocity command to stop the robot
+
+---
+
+##  How It Works
+
+1. **Initialization**:
+   - A subscription to the LIDAR topic is created.
+   - A publisher for the velocity command is created.
+   - A safe distance is set to **0.5 meters**.
+
+2. **Callback Function (`lidar_callback`)**:
+   - Filters out invalid LIDAR values (e.g., 0.0 or `inf`)
+   - Finds the minimum distance from the valid LIDAR readings
+   - If the robot is too close to an obstacle (distance < 0.5m), it publishes a **zero velocity** command to stop
+
+```python
+stop_msg = Twist()  # zero linear and angular velocity
+self.publisher.publish(stop_msg)
+```
+
+---
+
+## 🧪 How to Run
+
+Make sure your workspace is sourced and built:
+
+```bash
+colcon build --packages-select my_robot_description
+source install/setup.bash
+```
+
+Then launch with your Gazebo world (including sensors):
+
+```bash
+ros2 launch my_robot_description gazebo.launch.py
+```
+
+Or run the node manually in a separate terminal:
+
+```bash
+ros2 run my_robot_description obstacle_stop
+```
+Make sure the topic `/four_wheel_bot/gazebo_ros_laser/out` is active.
+
+---
+- Robot will stop even if it's being manually teleoperated
+- Works best when robot has a forward-facing LIDAR
+- We can increase stability by reducing speed or tuning mass/inertia in URDF
 
