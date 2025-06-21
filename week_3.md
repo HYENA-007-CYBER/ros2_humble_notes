@@ -1,10 +1,28 @@
-# 🤖 4-Wheeled Differential Drive Robot in ROS 2
+#  4-Wheeled Differential Drive Robot in ROS 2
 
-This project simulates a 4-wheeled differential-drive robot using ROS 2 and Gazebo. The robot features a camera, LIDAR, and obstacle-avoidance behavior based on real-time sensor input.
+Need to simulate a 4-wheeled differential-drive robot using ROS 2 and Gazebo. The robot sholud feature a camera, LIDAR, and obstacle-avoidance behavior based on real-time sensor input
 
 ---
+### 📁 Package Structure
 
-## 📘 What is URDF?
+```
+my_robot_description/
+├── CMakeLists.txt                # Build configuration
+├── package.xml                  # Package metadata
+├── launch/
+│   └── gazebo.launch.py         # Launches Gazebo, the robot, and obstacle stop node
+├── urdf/
+│   └── four_wheel_bot.xacro     # URDF/XACRO model of the robot
+├── worlds/
+│   └── my_world.world           # Custom Gazebo world with an obstacle
+├── my_robot_description/
+│   ├── __init__.py              # Makes it a Python module
+│   └── obstacle_stop.py         # ROS 2 node that stops the robot based on LIDAR
+├── resource/
+│   └── my_robot_description     # Required for ROS 2 indexing
+```
+---
+##  What is URDF?
 
 **URDF (Unified Robot Description Format)** is an XML-based language used to describe a robot's physical structure:
 - Links (parts)
@@ -16,7 +34,7 @@ This project simulates a 4-wheeled differential-drive robot using ROS 2 and Gaze
 
 ---
 
-## 🧰 What is XACRO?
+## What is XACRO?
 
 **XACRO** (XML Macros) is a more flexible version of URDF that allows reuse through:
 - Macros (e.g., defining a wheel once)
