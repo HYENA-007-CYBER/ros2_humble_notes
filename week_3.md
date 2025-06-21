@@ -3,7 +3,7 @@
 Need to simulate a 4-wheeled differential-drive robot using ROS 2 and Gazebo. The robot sholud feature a camera, LIDAR, and obstacle-avoidance behavior based on real-time sensor input
 
 ---
-### 📁 Package Structure
+###  Package Structure
 
 ```
 my_robot_description/
@@ -48,15 +48,9 @@ With XACRO, I could:
 
 ---
 
-## 🛠️ XACRO Structure Overview
-
-# 🤖 4-Wheeled Differential Drive Robot – Structure Overview
-
-This document explains the internal structure of the robot defined using XACRO (an XML macro language for URDF). The robot is simulated in Gazebo with differential drive capabilities, a mounted LIDAR and camera, and realistic physical behavior.
-
+## 🛠 XACRO Structure Overview
 ---
-
-## 📐 Parameters
+### 📐 Parameters
 
 Defined at the top for easy configuration and reuse across the robot:
 
@@ -68,11 +62,9 @@ Defined at the top for easy configuration and reuse across the robot:
 <xacro:property name="chassis_height" value="0.1"/>
 ```
 
-These allow easy tuning of the robot’s geometry and joint locations.
-
+These allow easy tuning of the robot’s geometry and joint locations
 ---
-
-## 🔲 Base Link (Body)
+### Base Link (Body)
 
 The main chassis of the robot is represented using a box geometry. The `base_link` contains:
 
@@ -94,10 +86,9 @@ The main chassis of the robot is represented using a box geometry. The `base_lin
   </inertial>
 </link>
 ```
-
 ---
 
-## 🛞 Wheels – Macros
+### Wheels – Macros
 
 Wheels are created using a `xacro:macro`, and reused for all four wheels (front/rear, left/right). Each wheel:
 
@@ -111,7 +102,7 @@ Wheels are created using a `xacro:macro`, and reused for all four wheels (front/
 
 ---
 
-## 🔌 Differential Drive Plugin
+### Differential Drive Plugin
 
 Allows the robot to move using the `cmd_vel` topic. Only rear wheels are driven.
 
@@ -125,10 +116,9 @@ Allows the robot to move using the `cmd_vel` topic. Only rear wheels are driven.
 ```
 
 Limits on speed and acceleration help avoid instability.
-
 ---
 
-## 📡 LIDAR Sensor
+##  LIDAR Sensor
 
 Mounted on top of the chassis. Simulates a 2D ray-based laser scanner:
 
