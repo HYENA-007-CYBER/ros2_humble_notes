@@ -278,6 +278,15 @@ For RVIZ visualisation launch with:
 ```bash
 ros2 run my_robot_description display.launch
 ```
+
+Running Teleop
+
+Make sure the robot and simulation are already running, then in a **new terminal**, source  ROS 2 workspace and run:
+
+```bash
+source install/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/four_wheel_bot/cmd_vel
+```
 ---
 
 
