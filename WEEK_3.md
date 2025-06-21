@@ -169,15 +169,52 @@ This improves simulation realism and reduces wobbling
 | Stability   | Improved using mass, inertia, and origin tuning |
 
 ---
+# Teleoperation
+
+To manually control the robot, we use the `teleop_twist_keyboard` ROS 2 package. This  send velocity commands (`/cmd_vel`) to the robot using the keyboard
+
+## Installation
+
+```bash
+sudo apt install ros-humble-teleop-twist-keyboard
+```
+
+## Running Teleop
+
+Make sure the robot and simulation are already running, then in a **new terminal**, source  ROS 2 workspace and run:
+
+```bash
+source ~/ros_ws/install/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/four_wheel_bot/cmd_vel
+```
+
+This will start a keyboard interface. Use the keys below to control the robot:
+
+```
+Moving around:
+   u    i    o
+   j    k    l
+   m    ,    .
+
+i: move forward  
+k: stop  
+j/l: turn left/right  
+,/: move backward  
+
+Hold the key down for continuous motion.
+```
+
+
+
 # Obstacle Stop Node 
 
-This Python node (`obstacle_stop.py`) implements a basic safety mechanism for the 4-wheeled differential drive robot in a Gazebo simulation.
+This Python node (`obstacle_stop.py`) implements a basic safety mechanism for the 4-wheeled differential drive robot in  Gazebo simulation
 
 ---
 
 ##  Overview
 
-The **Obstacle Stop Node** listens to LIDAR sensor data and stops the robot if an obstacle is detected within a certain safe distance (default is 0.5 meters).
+The **Obstacle Stop Node** listens to LIDAR sensor data and stops the robot if an obstacle is detected within a certain safe distance (default is 0.5 meters)
 
 ---
 ##  ROS 2 Interfaces
@@ -206,10 +243,14 @@ The **Obstacle Stop Node** listens to LIDAR sensor data and stops the robot if a
 stop_msg = Twist()  # zero linear and angular velocity
 self.publisher.publish(stop_msg)
 ```
+- Robot will stop even if it's being manually teleoperated
+- Works best when robot has a forward-facing LIDAR
+- We can increase stability by reducing speed or tuning mass/inertia in URDF
 
 ---
+--- 
 
-## 🧪 How to Run
+# HOW TO RUN 
 
 Make sure your workspace is sourced and built:
 
@@ -224,15 +265,11 @@ Then launch with your Gazebo world (including sensors):
 ros2 launch my_robot_description gazebo.launch.py
 ```
 
-Or run the node manually in a separate terminal:
+For RVIZ visualisation launch with:
 
 ```bash
-ros2 run my_robot_description obstacle_stop
+ros2 run my_robot_description display.launch
 ```
-Make sure the topic `/four_wheel_bot/gazebo_ros_laser/out` is active.
-
 ---
-- Robot will stop even if it's being manually teleoperated
-- Works best when robot has a forward-facing LIDAR
-- We can increase stability by reducing speed or tuning mass/inertia in URDF
+
 
