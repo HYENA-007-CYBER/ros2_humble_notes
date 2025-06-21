@@ -248,9 +248,11 @@ self.publisher.publish(stop_msg)
 - We can increase stability by reducing speed or tuning mass/inertia in URDF
 
 ---
-## 🎥 Demo Video
+##  Demo Video
 
 [Click here to watch the demo video](https://drive.google.com/file/d/1DUNQe_dnkH8evnWs-LyYDOHpfQjFY0ct/view?usp=sharing)
+
+It shows demo of obstacle stopping behaviour and teleoperation
 
 
 --- 
