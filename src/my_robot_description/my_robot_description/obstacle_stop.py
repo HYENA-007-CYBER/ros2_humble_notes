@@ -19,7 +19,7 @@ class ObstacleStopNode(Node):
         self.get_logger().info("Obstacle Stop Node Started")
 
     def lidar_callback(self, msg):
-        # Filter out invalid ranges (e.g. inf) and find the minimum
+        
         valid_ranges = [r for r in msg.ranges if r > 0.0]
         if not valid_ranges:
             return
