@@ -3,36 +3,35 @@
 ## OpenCV (HSV Color Masking)
 
 **Pros:**
-- Fast and lightweight – Ideal for real-time applications on low-resource systems.
-- Easy to implement – Requires minimal setup and no training phase.
-- Simple integration with ROS 2 – Works directly with camera image topics.
-- No internet or model dependencies – Fully offline method.
+- Lightweight and fast – Ideal for real-time applications on systems without a GPU.
+- Easy to implement – Simple color thresholding without the need for training.
+- Straightforward ROS 2 integration – Can process raw image topics directly.
+- Fully offline – No dependency on pre-trained models or internet access.
 
 **Cons:**
-- Highly sensitive to lighting – Varying illumination or shadows can affect detection accuracy.
-- Only detects based on color – Cannot differentiate between objects of the same color.
-- Not scalable – Needs separate tuning for each new object or color.
-- Prone to false positives – May detect unrelated orange-colored items.
+- Highly sensitive to lighting – Detection accuracy drops under different illumination.
+- Limited to color – Cannot differentiate between similarly colored objects.
+- Poor scalability – Requires manual tuning for every new object or environment.
+- Prone to false positives – May detect background elements or textures with similar colors.
 
 ---
 
 ## YOLOv5 (You Only Look Once – Deep Learning)
 
 **Pros:**
-- High accuracy and robustness – Detects objects even in challenging lighting or partial occlusion.
-- Supports multiple object classes – Not limited to color; recognizes object shapes.
-- Custom training possible – Can be fine-tuned for detecting cones, boxes, etc.
-- Less prone to false detections – Learns detailed visual features.
+- High accuracy – Performs well under varied lighting and partial occlusion.
+- Learns object shape – Not dependent on object color alone.
+- Supports multiple objects – Can detect cones, boxes, and more simultaneously.
+- Custom training support – Can be fine-tuned on new classes and datasets.
 
 **Cons:**
-- Heavier and slower on CPU – Real-time performance requires a GPU for smooth operation.
-- Initial setup is complex – Needs model loading, dependencies, and possibly training.
-- Requires labeled training data – For objects not already in YOLO’s pretrained classes.
-- More dependencies – PyTorch, torchvision, and sometimes internet access for model download.
+- Slower on CPU – Inference speed can be low without a GPU.
+- More complex setup – Requires PyTorch, model downloads, and proper dependency management.
+- Requires labeled data – For detecting custom or untrained objects.
+- Heavier dependencies – Needs libraries like seaborn, gitpython, and more.
 
 ---
 
-## Final Note
+## Conclusion
 
-Both methods were tested for detecting an orange cone in a Gazebo environment using a camera plugin. While OpenCV gave fast results with minimal setup, YOLO provided more accurate and reliable detection, especially under varied lighting and background conditions.
-
+OpenCV is fast and simple but less reliable in complex environments. YOLOv5 offers superior robustness and flexibility at the cost of setup complexity and compute requirements. Use OpenCV for quick prototyping and YOLOv5 for accuracy-critical applications.
