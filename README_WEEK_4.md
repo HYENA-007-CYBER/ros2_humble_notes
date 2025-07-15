@@ -1,7 +1,6 @@
 # Detection Methods Comparison – OpenCV vs YOLOv5
 
-During the Week 4 task focused on detecting an orange cone in a Gazebo simulation, two approaches were implemented and evaluated: one based on OpenCV with HSV (Hue, Saturation, Value) color masking, and the other using the YOLOv5 object detection model. Both methods had their benefits and limitations depending on the scenario and hardware used.
-
+During the fourth week of the project, I tried out two different methods to detect an orange cone in the Gazebo simulation environment. The first was a basic color-based approach using OpenCV and HSV (Hue, Saturation, Value) masking, and the second was a more advanced deep learning method using YOLOv5. Both had their own strengths and challenges, especially when it came to setup, performance, and accuracy on my system.
 ## OpenCV (HSV Color Masking)
 
 This method involved filtering the image by isolating orange hues using HSV (Hue, Saturation, Value) thresholding. A specific lower and upper HSV range was defined:
