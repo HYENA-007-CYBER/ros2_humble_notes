@@ -52,10 +52,10 @@ def generate_launch_description():
             output="screen"
         ),
 
-        # Run Cone Detector Node
+        
         Node(
             package="my_robot_description",
-            executable="cone_detector",
+            executable="yolo_cone_detector",
             output="screen"
         )
 

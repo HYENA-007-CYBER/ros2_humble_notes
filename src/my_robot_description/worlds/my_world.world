@@ -1,44 +1,201 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <sdf version="1.6">
-  <world name="default">
+  <world name="boxed_arena_large">
 
-    <!-- Include the ground plane -->
+    <!-- Ground -->
     <include>
       <uri>model://ground_plane</uri>
     </include>
 
-    <!-- Include a sun -->
+    <!-- Sun -->
     <include>
       <uri>model://sun</uri>
     </include>
 
-    <!-- Add a static wall -->
-    <model name="wall">
+    <!-- Arena Walls (≈ 7x7 meters) -->
+    <!-- Front Wall -->
+    <model name="wall_front">
       <static>true</static>
-      <link name="wall_link">
+      <pose>0 3.5 0.5 0 0 0</pose>
+      <link name="link">
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>0.1 2.0 1.0</size>
-            </box>
-          </geometry>
+          <geometry><box><size>7 0.1 1</size></box></geometry>
           <material>
-            <ambient>0.3 0.3 0.3 1</ambient>
+            <ambient>0.4 0.4 0.4 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
-          <pose>1.5 0 0.5 0 0 0</pose>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>7 0.1 1</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Back Wall -->
+    <model name="wall_back">
+      <static>true</static>
+      <pose>0 -3.5 0.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>7 0.1 1</size></box></geometry>
+          <material>
+            <ambient>0.4 0.4 0.4 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>7 0.1 1</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Left Wall -->
+    <model name="wall_left">
+      <static>true</static>
+      <pose>-3.5 0 0.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.1 7 1</size></box></geometry>
+          <material>
+            <ambient>0.4 0.4 0.4 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>0.1 7 1</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Right Wall -->
+    <model name="wall_right">
+      <static>true</static>
+      <pose>3.5 0 0.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.1 7 1</size></box></geometry>
+          <material>
+            <ambient>0.4 0.4 0.4 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>0.1 7 1</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- 🟠 Orange Cone -->
+    <model name="orange_cone">
+      <static>true</static>
+      <pose>1 0 0.2 0 0 0</pose>
+      <link name="cone_link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.4</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1.0 0.5 0.0 1</ambient>
+            <diffuse>1.0 0.5 0.0 1</diffuse>
+          </material>
         </visual>
         <collision name="collision">
           <geometry>
-            <box>
-              <size>0.1 2.0 1.0</size>
-            </box>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.4</length>
+            </cylinder>
           </geometry>
-          <pose>1.5 0 0.5 0 0 0</pose>
+        </collision>
+      </link>
+    </model>
+
+    <!-- 🟢 Green Cone -->
+    <model name="green_cone">
+      <static>true</static>
+      <pose>1.3 0 0.2 0 0 0</pose>
+      <link name="cone_link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.4</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.0 1.0 0.0 1</ambient>
+            <diffuse>0.0 1.0 0.0 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.4</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- 🔵 Blue Cone -->
+    <model name="blue_cone">
+      <static>true</static>
+      <pose>0.7 0.2 0.2 0 0 0</pose>
+      <link name="cone_link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.4</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.0 0.0 1.0 1</ambient>
+            <diffuse>0.0 0.0 1.0 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.4</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- 🔴 Red Cone -->
+    <model name="red_cone">
+      <static>true</static>
+      <pose>1 -0.3 0.2 0 0 0</pose>
+      <link name="cone_link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.4</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1.0 0.0 0.0 1</ambient>
+            <diffuse>1.0 0.0 0.0 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.4</length>
+            </cylinder>
+          </geometry>
         </collision>
       </link>
     </model>
 
   </world>
 </sdf>
-
