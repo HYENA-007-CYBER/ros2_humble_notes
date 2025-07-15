@@ -104,6 +104,9 @@ These had to be installed manually to ensure smooth execution of the YOLO node.
 System lacked a GPU, confirmed with `torch.cuda.is_available() == False`.  
 YOLOv5 inference on CPU was slow and unsuitable for real-time processing, especially at full image resolution.
 
+---
+## Model Unavailability Problems
+
 ### 8. Object Used Was a Cylinder, Not a Cone  
 A simple orange **cylinder** was used in the Gazebo world instead of an actual cone due to **unavailability of a suitable cone model**.  
 This substitution slightly altered the original task objective but allowed the detection methods to be tested effectively. Both OpenCV and YOLO were applied on this object with adjusted parameters.
