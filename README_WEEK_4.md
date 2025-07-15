@@ -4,7 +4,7 @@ During the Week 4 task focused on detecting an orange cone in a Gazebo simulatio
 
 ## OpenCV (HSV Color Masking)
 
-This method involved filtering the image by isolating orange hues using HSV thresholding. A specific lower and upper HSV range was defined:
+This method involved filtering the image by isolating orange hues using HSV(Hue, Saturation, Value) thresholding. A specific lower and upper HSV range was defined:
 
 - Lower bound: `[5, 100, 100]`
 - Upper bound: `[25, 255, 255]`
