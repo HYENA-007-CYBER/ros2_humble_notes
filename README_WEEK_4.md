@@ -59,7 +59,7 @@ The selection of method depends on project scope:
 ---
 # Difficulties Faced
 
-This document outlines the technical issues and practical challenges encountered during the Week 4 task — detecting an orange cone in Gazebo using OpenCV and YOLOv5, integrated with ROS 2 Humble.
+I came across many errors during the Week 4 task — detecting an orange cone in Gazebo using OpenCV and YOLOv5, integrated with ROS 2 Humble.
 
 ---
 
@@ -82,12 +82,8 @@ Resolved by deleting unnecessary pip caches, removing unused packages, and clean
 
 ## OpenCV-Related Challenges
 
-### 4. Color-Based False Positives  
-HSV (Hue, Saturation, Value) thresholding occasionally detected unintended orange-like textures in the Gazebo environment.  
-Detection was purely color-based and lacked semantic awareness.
-
-### 5. HSV Tuning  
-HSV thresholds were tuned manually to the cone’s color:
+### 4. HSV Tuning  
+HSV (Hue, Saturation, Value) thresholds were tuned manually to the cone’s color:
 - Lower: `[5, 100, 100]`
 - Upper: `[25, 255, 255]`  
 Although lighting inside Gazebo was consistent, this method would be sensitive in real-world conditions where cone color or lighting varies.
@@ -96,49 +92,18 @@ Although lighting inside Gazebo was consistent, this method would be sensitive i
 
 ## YOLOv5-Specific Problems
 
-### 6. Pretrained Class Limitation  
+### 5. Pretrained Class Limitation  
 YOLOv5's pretrained model (`yolov5s`) only supports 80 COCO classes, which do not include traffic cones.  
 As a result, detection of the orange cone was not possible without custom training.
 
-### 7. Missing Dependencies  
+### 6. Missing Dependencies  
 Several runtime errors occurred due to missing modules such as `seaborn`, `gitpython`, `pillow`, and `requests`.  
 These had to be installed manually to ensure smooth execution of the YOLO node.
 
-### 8. CPU-Only Performance  
+### 7. CPU-Only Performance  
 System lacked a GPU, confirmed with `torch.cuda.is_available() == False`.  
 YOLOv5 inference on CPU was slow and unsuitable for real-time processing, especially at full image resolution.
 
-### 9. Model Download Requirement  
-The model was downloaded from Ultralytics on first run using `torch.hub.load(...)`, which required internet access.  
-This step made setup slightly slower and more dependent on network availability.
-
----
-
-## ROS 2 & Gazebo Integration
-
-### 10. Camera Plugin Setup  
-The Gazebo camera plugin needed careful configuration:
-- Correct angle and positioning toward the cone
-- Proper topic remapping to `/image_raw`
-- Consistent encoding (`bgr8`) to match OpenCV and YOLO input expectations
-
-### 11. Cone Placement in Gazebo  
-The orange cone was sometimes missed if occluded, rotated, or placed out of frame.  
-Ensuring visibility and testing placement became a recurring step during debugging.
-
----
-
-## Git Issues
-
-### 12. Git Push Rejected  
-Git push failed due to remote updates.  
-The error was resolved by running `git pull --rebase` before retrying the push, allowing local commits to be added cleanly on top of remote changes.
-
----
-
-## Summary
-
-Several practical issues were encountered during the process — from Python dependency mismatches to disk space constraints and ROS integration quirks.  
-Fixes ranged from modifying build files to managing Python environments and tuning Gazebo setups.  
-The overall workflow required a combination of debugging, system cleanup, and adaptation to hardware limitations (especially the absence of a GPU).
-
+### 8. Object Used Was a Cylinder, Not a Cone  
+A simple orange **cylinder** was used in the Gazebo world instead of an actual cone due to **unavailability of a suitable cone model**.  
+This substitution slightly altered the original task objective but allowed the detection methods to be tested effectively. Both OpenCV and YOLO were applied on this object with adjusted parameters.
