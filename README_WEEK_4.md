@@ -32,7 +32,7 @@ Overall, this method provided quick results and was easy to set up, but lacked r
 
 YOLOv5 was used by loading the small model variant (`yolov5s`) from the Ultralytics repository via PyTorch. The model came pretrained on the COCO dataset.
 
-**Note**: The pretrained YOLOv5 model supports only the 80 object classes included in the COCO dataset (such as person, car, bottle, chair, etc.). Since the orange cone was not one of those classes, the model did not detect it by default. This made custom training necessary for cone detection.
+The pretrained YOLOv5 model supports only the 80 object classes included in the COCO dataset (such as person, car, bottle, chair, etc.). Since the orange cone was not one of those classes, the model did not detect it by default. This made custom training necessary for cone detection.
 
 ### Advantages
 
@@ -49,28 +49,6 @@ YOLOv5 was used by loading the small model variant (`yolov5s`) from the Ultralyt
 - Integration required more effort compared to OpenCV, including ensuring the camera data was correctly formatted (RGB) and resizing frames to match the model’s input expectations.
 
 ---
-
-## Practical Comparison Based on Use Cases
-
-| Scenario                              | OpenCV                        | YOLOv5                           |
-|---------------------------------------|-------------------------------|----------------------------------|
-| System Resource Requirement           | Very low (CPU-only is fine)   | High (GPU recommended)           |
-| Ease of Setup                         | Simple                        | Requires deep learning stack     |
-| Internet Requirement                  | No                            | Yes (for model download)         |
-| Speed on CPU                          | Real-time                     | Slower                           |
-| Lighting Robustness                   | Low                           | High                             |
-| Object Differentiation                | Only by color                 | By learned features (shape, etc) |
-| Multi-object Support                  | No                            | Yes                              |
-| Training Needed                       | No                            | Yes (for custom objects)         |
-| Scalability                           | Poor                          | Excellent                        |
-
----
-
-## Final Thoughts
-
-Both methods served different purposes depending on priorities. OpenCV offered simplicity and speed, making it suitable for quick testing or when only color matters. On the other hand, YOLOv5 offered depth and flexibility, especially for applications requiring accuracy and robustness under varying conditions.
-
-For real-time applications on limited hardware or single-object color detection, OpenCV was the easier and faster path. But for scalable object detection tasks with more reliability, especially in real-world scenarios, YOLOv5 held the advantage.
 
 ## Conclusion
 
