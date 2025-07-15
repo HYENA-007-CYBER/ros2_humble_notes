@@ -1,10 +1,10 @@
 # Detection Methods Comparison – OpenCV vs YOLOv5
 
-During the Week 4 task focused on detecting an orange cone in a Gazebo simulation, two approaches were implemented and evaluated: one based on OpenCV with HSV color masking, and the other using the YOLOv5 object detection model. Both methods had their benefits and limitations depending on the scenario and hardware used.
+During the Week 4 task focused on detecting an orange cone in a Gazebo simulation, two approaches were implemented and evaluated: one based on OpenCV with HSV (Hue, Saturation, Value) color masking, and the other using the YOLOv5 object detection model. Both methods had their benefits and limitations depending on the scenario and hardware used.
 
 ## OpenCV (HSV Color Masking)
 
-This method involved filtering the image by isolating orange hues using HSV(Hue, Saturation, Value) thresholding. A specific lower and upper HSV range was defined:
+This method involved filtering the image by isolating orange hues using HSV (Hue, Saturation, Value) thresholding. A specific lower and upper HSV range was defined:
 
 - Lower bound: `[5, 100, 100]`
 - Upper bound: `[25, 255, 255]`
@@ -31,7 +31,9 @@ Overall, this method provided quick results and was easy to set up, but lacked r
 
 ## YOLOv5 (You Only Look Once – Deep Learning)
 
-YOLOv5 was used by loading the small model variant (`yolov5s`) from the Ultralytics repository via PyTorch. The model came pretrained on the COCO dataset but did not recognize the orange cone directly, as it wasn’t a known class in the default model.
+YOLOv5 was used by loading the small model variant (`yolov5s`) from the Ultralytics repository via PyTorch. The model came pretrained on the COCO dataset.
+
+**Note**: The pretrained YOLOv5 model supports only the 80 object classes included in the COCO dataset (such as person, car, bottle, chair, etc.). Since the orange cone was not one of those classes, the model did not detect it by default. This made custom training necessary for cone detection.
 
 ### Advantages
 
@@ -49,7 +51,6 @@ YOLOv5 was used by loading the small model variant (`yolov5s`) from the Ultralyt
 
 ---
 
-
 ## Practical Comparison Based on Use Cases
 
 | Scenario                              | OpenCV                        | YOLOv5                           |
@@ -65,12 +66,12 @@ YOLOv5 was used by loading the small model variant (`yolov5s`) from the Ultralyt
 | Scalability                           | Poor                          | Excellent                        |
 
 ---
+
 ## Final Thoughts
 
 Both methods served different purposes depending on priorities. OpenCV offered simplicity and speed, making it suitable for quick testing or when only color matters. On the other hand, YOLOv5 offered depth and flexibility, especially for applications requiring accuracy and robustness under varying conditions.
 
 For real-time applications on limited hardware or single-object color detection, OpenCV was the easier and faster path. But for scalable object detection tasks with more reliability, especially in real-world scenarios, YOLOv5 held the advantage.
-
 
 ## Conclusion
 
