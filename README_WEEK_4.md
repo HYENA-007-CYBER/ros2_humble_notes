@@ -28,7 +28,7 @@ Overall, this method provided quick results and was easy to set up, but lacked r
 
 ---
 
-## YOLOv5 (You Only Look Once – Deep Learning)
+## YOLOv5 (Deep Learning)
 
 YOLOv5 was used by loading the small model variant (`yolov5s`) from the Ultralytics repository via PyTorch. The model came pretrained on the COCO dataset.
 
