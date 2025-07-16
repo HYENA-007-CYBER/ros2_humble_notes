@@ -85,7 +85,7 @@
       </link>
     </model>
 
-    <!-- 🟠 Orange Cone -->
+    <!--  Orange Cone -->
     <model name="orange_cone">
       <static>true</static>
       <pose>1 0 0.2 0 0 0</pose>
@@ -113,7 +113,7 @@
       </link>
     </model>
 
-    <!-- 🟢 Green Cone -->
+    <!--  Green Cone -->
     <model name="green_cone">
       <static>true</static>
       <pose>1.3 0 0.2 0 0 0</pose>
@@ -141,7 +141,7 @@
       </link>
     </model>
 
-    <!-- 🔵 Blue Cone -->
+    <!--  Blue Cone -->
     <model name="blue_cone">
       <static>true</static>
       <pose>0.7 0.2 0.2 0 0 0</pose>
@@ -169,7 +169,7 @@
       </link>
     </model>
 
-    <!-- 🔴 Red Cone -->
+    <!--  Red Cone -->
     <model name="red_cone">
       <static>true</static>
       <pose>1 -0.3 0.2 0 0 0</pose>
