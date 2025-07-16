@@ -59,7 +59,7 @@ The selection of method depends on project scope:
 ---
 # Difficulties Faced
 
-I came across many errors during the Week 4 task — detecting an orange cone in Gazebo using OpenCV and YOLOv5, integrated with ROS 2 Humble.
+I came across many errors during the Week 4 task — detecting an orange cone in Gazebo using OpenCV and YOLOv5.
 
 ---
 
