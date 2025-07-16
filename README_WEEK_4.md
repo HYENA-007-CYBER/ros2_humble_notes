@@ -110,3 +110,14 @@ YOLOv5 inference on CPU was slow and unsuitable for real-time processing, especi
 ### 8. Object Used Was a Cylinder, Not a Cone  
 A simple orange **cylinder** was used in the Gazebo world instead of an actual cone due to **unavailability of a suitable cone model**.  
 This substitution slightly altered the original task objective but allowed the detection methods to be tested effectively. Both OpenCV and YOLO were applied on this object with adjusted parameters.
+
+---
+##  Demo Video for Cone-detection
+
+[Click here to watch the demo video](https://drive.google.com/file/d/1o13vw7lj6G4rIFre2qfL_tH8Ux9gVPy7/view?usp=drivesdk)
+
+It shows the working of my cone-detector
+
+
+--- 
+
